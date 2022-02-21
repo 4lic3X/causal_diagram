@@ -1,0 +1,34 @@
+\documentclass[border = 10pt]{standalone}
+\usepackage{tikz}
+
+% Define a variable for the default length
+\newcommand{\len}{4}
+
+\begin{document}
+\begin{tikzpicture}
+  
+  % Draw nodes
+  % ++(angle;length) controls where the next node is located
+  \node (A) {Storm events};
+  \path (A) ++(-30:\len) node (B) {Reefs};
+  \path (B) ++(30:\len) node (C) {Population of starfish};
+  \path (C) ++(45:\len) node (D) {Population of phytoplankton};
+  \path (D) ++(45:\len) node (E) {Fertilizer runoff};
+  \path (C) ++(-45:\len) node (F) {Population of giant triton snail};
+  \path (F) ++(45:\len) node (G) {Fishing};
+  
+  % Draw arrows. Remove [-latex] to draw line instead of arrow
+  \draw[-latex] (A) -- (B);
+  \draw[-latex] (B) -- (C);
+  \draw[-latex] (D) -- (C);
+  \draw[-latex] (E) -- (D);
+  \draw[-latex] (F) -- (C);
+  \draw[-latex] (G) -- (F);
+  
+\end{tikzpicture}
+\end{document}
+
+
+% Some references:
+% - https://tex.stackexchange.com/questions/27796/position-a-node-a-certain-distance-away-from-another-node-at-a-certain-angle-in
+
